@@ -1,10 +1,18 @@
 from tamil_translite import translite
 from gtts import gTTS
-from flask import Flask, request, render_template, jsonify, Response, redirect
+from flask import (
+    Flask,
+    request,
+    render_template,
+    jsonify,
+    Response,
+    redirect,
+)
 from flask_swagger_ui import get_swaggerui_blueprint
 import tempfile
 import json
 import random
+import os
 
 # Create a Flask instance
 app = Flask(__name__)
@@ -49,7 +57,8 @@ def result():
 
 @app.route("/translite/learn", methods=["GET"])
 def result_learn():
-    with open("learn_data.json", "r") as file:
+    json_file_path = os.path.join(os.path.dirname(__file__), "learn_data.json")
+    with open(json_file_path, "r") as file:
         data = json.load(file)
     random_key = random.choice(list(data.keys()))
     random_value = data[random_key]
@@ -90,6 +99,12 @@ def speak():
         audio_data = temp_file.read()
 
         return Response(audio_data, mimetype="audio/mpeg")
+
+
+# @app.route("/sitemap.xml")
+# def serve_sitemap():
+#     # Use send_from_directory to serve the static sitemap.xml file
+#     return send_from_directory("static", "sitemap.xml")
 
 
 # Run the app on the local server (default port 5000)

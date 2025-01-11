@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /private/
+Allow: /
+
+Sitemap: https://irahnarak.pythonanywhere.com/sitemap.xml
