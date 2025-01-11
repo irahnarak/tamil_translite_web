@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Translite</title>
+
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <script src="{{ url_for('static', filename='script/app.js') }}"></script>
+
+
+</head>
+
+<body>
+    <h1>
+        Tamil Translite
+    </h1>
+    <div id="learn_div"></div>
+
+    <div id="tam_div">
+
+        <textarea id="tam_txt" placeholder="Enter your Tamil text here..
+Example input: அழகிய தமிழ் மொழி"></textarea>
+        <div id="submit_div">
+            <button id="learn_btn" onclick="learnData()">Learn</button>
+            <!--<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-book" viewBox="0 0 16 16">
+                    <path
+                        d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+                </svg>-->
+
+            <button id="play_btn" class="tooltip" onmouseout="outFunc(id)" onclick="playAudio()"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" />
+                </svg><span class="tooltiptext" id="myTooltip_play">Play Audio</span></button>
+            <button id="submit" class="tooltip" onmouseout="outFunc(id)"><svg xmlns="http://www.w3.org/2000/svg"
+                    width="20" height="20" fill="currentColor" class="bi bi-arrow-return-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5" />
+                </svg><span class="tooltiptext" id="myTooltip_submit">Transliterate</span></button>
+        </div>
+        <div id="play_div">
+
+        </div>
+    </div>
+
+    </div>
+    <div id="eng_div">
+        <textarea id="eng_txt" disabled placeholder="Transliterated text appears here..
+
+Example output: azhagiya thamizh mozhi"></textarea>
+        <div id="copy_div">
+            <button id="copy_btn" class="tooltip" onmouseout="outFunc(id)"> <svg xmlns="http://www.w3.org/2000/svg"
+                    width="20" height="20" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+                </svg><span class="tooltiptext" id="myTooltip_copy">Copy</span></button>
+        </div>
+
+
+    </div>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="https://github.com/irahnarak/tamil_translite" target="_blank" class="social-icon"><svg
+                        width="35" height="33" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+                            fill="#fff" />
+                    </svg>
+                </a>
+                <a href="mailto:irahnarak@gmail.com" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <section>irahnarak@gmail.com</section>
+                </a>
+                <a href="/api/docs" class="social-icon"><svg width="30" height="30"
+                        viewBox="-2 -4 148.4 77.80040884269138" xmlns="http://www.w3.org/2000/svg">
+                        <g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="4pt" stroke="#fff"
+                            stroke-width="0.25mm" fill="#fff" style="stroke:#ffffff;stroke-width:0.25mm;fill:#ffffff">
+                            <path
+                                d="M 64.8 68.3 L 56.1 71.8 L 48.3 51.8 L 15.9 51.8 L 8.1 71.6 L 0 68.3 L 27.4 0.8 L 37.8 0.8 L 64.8 68.3 Z M 84.3 70.8 L 74.8 70.8 L 74.8 1 Q 78.9 0.5 83.85 0.25 A 200.806 200.806 0 0 1 92.78 0.004 A 221.966 221.966 0 0 1 94.1 0 Q 101.67 0 107.272 2.082 A 26.011 26.011 0 0 1 108.9 2.75 A 24.606 24.606 0 0 1 113.982 5.779 A 19.374 19.374 0 0 1 118.2 10.3 Q 121.4 15.1 121.4 21.3 A 25.258 25.258 0 0 1 120.692 27.423 A 19.268 19.268 0 0 1 117.7 34 A 22.312 22.312 0 0 1 110.149 40.63 A 28.065 28.065 0 0 1 107.4 41.95 A 34.774 34.774 0 0 1 99.311 44.174 A 47.194 47.194 0 0 1 92.1 44.7 Q 87.9 44.7 84.3 44.4 L 84.3 70.8 Z M 142.4 70.8 L 132.9 70.8 L 132.9 0.8 L 142.4 0.8 L 142.4 70.8 Z M 84.3 8.4 L 84.3 36.3 Q 85.4 36.438 86.831 36.552 A 96.255 96.255 0 0 0 88.2 36.65 Q 90.5 36.8 93.3 36.8 A 31.831 31.831 0 0 0 98.68 36.375 Q 101.559 35.88 103.863 34.811 A 15.221 15.221 0 0 0 107.1 32.8 A 12.896 12.896 0 0 0 111.955 23.358 A 17.32 17.32 0 0 0 112 22.1 A 14.452 14.452 0 0 0 111.239 17.307 A 12.136 12.136 0 0 0 107.3 11.8 A 15.462 15.462 0 0 0 102.219 9.137 Q 99.993 8.427 97.3 8.16 A 34.58 34.58 0 0 0 93.9 8 A 131.125 131.125 0 0 0 90.642 8.039 A 109.939 109.939 0 0 0 88.8 8.1 A 91.274 91.274 0 0 0 85.917 8.264 A 75.041 75.041 0 0 0 84.3 8.4 Z M 32.1 10.2 L 18.9 43.8 L 45.2 43.8 L 32.1 10.2 Z"
+                                vector-effect="non-scaling-stroke" />
+                        </g>
+                    </svg></a>
+
+            </div>
+        </div>
+        <audio id="audio-player" controls></audio>
+    </footer>
+
+</body>
+
+</html>

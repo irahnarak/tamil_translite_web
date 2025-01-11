@@ -1,0 +1,59 @@
+{
+  "swagger": "2.0",
+  "host": "irahnarak.pythonanywhere.com",
+  "basePath": "/",
+  "paths": {
+    "/translite/api": {
+      "post": {
+        "operationId": "post_result",
+        "parameters": [
+          {
+            "name": "payload",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": [
+                "tamil_txt"
+              ],
+              "properties": {
+                "tamil_txt": {
+                  "type": "string",
+                  "description": "Tamil text to transliterate"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "eng_text": {
+                  "type": "string",
+                  "description": "English transliterated text"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "translite"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Tamil Translite API",
+    "version": "1.0",
+    "description": "A simple API to transliterate Tamil text to English."
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ]
+}

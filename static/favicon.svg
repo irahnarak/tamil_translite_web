@@ -1,0 +1,24 @@
+<svg viewBox="0 0 70 60" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    svg {
+      background-color: hsl(242, 10%, 8%);
+    }
+    .heavy {
+      font: bold 45px Roboto Mono;
+      fill: #f7f7f7;
+      stroke: #7f00ff; /* Black outline */
+      stroke-width: 0.5px; /* Outline thickness */
+    
+    }
+
+    .Rrrrr {
+      
+      font:  42px Roboto Mono;
+      fill: #f7f7f7;
+      stroke: #7f00ff; /* Black outline */
+      stroke-width: 0.5px; /* Outline thickness */
+    }
+  </style>
+  <text x="16" y="41" class="heavy">T</text>
+  <text x="41" y="47" class="Rrrrr">t</text>
+</svg>

@@ -1,0 +1,4 @@
+tamil_translite
+flask
+gtts
+flask_swagger_ui

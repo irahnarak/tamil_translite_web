@@ -1,0 +1,258 @@
+/* Add this to your CSS file */
+
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&display=swap');
+
+
+body {
+  margin: 0;
+  padding: 0;
+  /* font-family: Arial, sans-serif; */
+  background-color: hsl(242, 10%, 8%);
+  color: #f7f7f7;
+  font-family: Catamaran;
+  transform: scale(0.8);
+  /* Scales the page to 90% */
+  /* Prevents horizontal scrollbar */
+  height: 100vh;
+
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#tam_div,
+#eng_div {
+  width: 90%;
+  max-width: 850px;
+  /* Set max-width to prevent it from becoming too wide */
+  /*margin: 20px auto;*/
+  margin: 10px auto;
+  padding: 20px;
+  /* box-sizing: border-box; */
+  /* border: 1px solid #ccc; */
+  border-radius: 8px;
+  display: flex;
+  align-content: center;
+  max-height: 300px;
+}
+
+#tam_txt,
+#eng_txt {
+  width: 90%;
+  height: 200px;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  border: 1px solid rgba(52, 52, 58, 0.95);
+  border-radius: 5px;
+  background-color: rgb(24, 24, 27, .95);
+  resize: none;
+  color: #f7f7f7;
+
+
+
+}
+
+#tam_txt:focus {
+  border-color: white;
+  outline: none;
+
+}
+
+
+#submit_div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+#learn_div {
+  display: flex;
+  /* Use Flexbox */
+  justify-content: space-evenly;
+  /* Horizontally center */
+  align-items: center;
+  /* Vertically center */
+  max-height: 50px;
+  /* Set height of the container */
+  /* Just to visualize the div */
+  max-height: 50px;
+}
+
+
+
+#copy_div {
+  flex-direction: column;
+  align-content: center;
+
+}
+
+button {
+  /* padding: 10px 20px; */
+  display: flex;
+  background-color: #7f00ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  max-width: 50px;
+  max-height: 80px;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  font-size: 18px;
+}
+
+svg {
+  padding: 4px;
+
+}
+
+button:hover {
+  background-color: #5e03b8;
+}
+
+/* #eng_txt {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  word-wrap: break-word;  */
+/* overflow: auto;
+} */
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*footer*/
+/* General Footer Styling */
+.footer {
+  /* background-color: #333; */
+  padding: 5px 20px;
+  /* Thin footer by reducing padding */
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  /* Fix the footer to the bottom of the page */
+  bottom: 0;
+  /* Position it at the bottom */
+  left: 0;
+  /* Make it span the entire width */
+  z-index: 1000;
+  /* Ensure it stays on top */
+
+}
+
+/* Footer Content Styling */
+
+.footer-content {
+  max-width: 600px;
+  /* Optional: Set max-width if you want the content to be centered */
+  margin: 0 auto;
+}
+
+/* Social Media Icons */
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* Space between icons */
+}
+
+/* Styling for Social Icon links */
+.social-icon {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  /* Remove underline */
+  font-size: 16px;
+}
+
+/* SVG Icon Styling */
+.social-icon svg {
+  margin-right: 8px;
+  /* Space between icon and email */
+  transition: transform 0.3s ease;
+}
+
+/* Email Section Styling */
+.social-icon section {
+  font-size: 16px;
+  color: #fff;
+  line-height: 24px;
+}
+
+/* Hover effect on social icons */
+.social-icon:hover svg {
+  transform: scale(1.1);
+  /* Slightly enlarge icon on hover */
+}
+
+/* Responsive Footer (Mobile view) */
+@media screen and (max-width: 768px) {
+  .social-media {
+    flex-direction: column;
+    gap: 15px;
+    /* Adjust space between items */
+  }
+}
+
+
+/*footer ends*/
+#audio-player {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  textarea {
+    height: 80px;
+  }
+
+  button {
+    width: 100%;
+    /* Make button span full width on smaller screens */
+  }
+}
