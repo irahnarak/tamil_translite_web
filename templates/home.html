@@ -14,6 +14,24 @@
         <meta name="keywords"
             content="Tamil to English transliteration, text-to-speech, learn Tamil, Tamil language, free Tamil app, transliteration tool, Tamil">
 
+
+        <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "SoftwareApplication",
+                  "name": "Tamil translite",
+                  "description": "A simple tool for converting Tamil text to English, with text-to-speech functionality, tool to start learning Tamil.",
+                  "url": "https://irahnarak.pythonanywhere.com",
+                  "logo": "https://irahnarak.pythonanywhere.com/static/favicon.svg",
+                  "applicationCategory": "Language Translation",
+                  "operatingSystem": "All",
+                  "softwareVersion": "1.0",
+                  "availableLanguage": [
+                    { "@type": "Language", "name": "Tamil" },
+                    { "@type": "Language", "name": "English" }
+                  ]
+                }
+            </script>
         <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
